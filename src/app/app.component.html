@@ -14,6 +14,14 @@
     Mostrando contenido
 </ng-template>
 
+<div [ngSwitch]="title">
+    <p *ngSwitchCase="'Eduard'">This is Eduard</p>
+    <p *ngSwitchCase="'Clark'">This is Clark</p>
+    <p *ngSwitchCase="'Bruce'">This is Bruce</p>
+    <p *ngSwitchCase="'Diana'">This is Diana</p>
+    <p *ngSwitchDefault>No match</p>
+</div>
+
 <button (click)=addItem()>Add item</button>
 
 <ul>
