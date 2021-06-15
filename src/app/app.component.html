@@ -13,3 +13,26 @@
 <ng-template #store>
     Mostrando contenido
 </ng-template>
+
+<button (click)=addItem()>Add item</button>
+
+<ul>
+    <li *ngIf="items.length === 0">La Lista esta vacia</li>
+    <li *ngFor="let name of items; index as i">
+       {{name}} - Posicion: {{i}}
+       <button (click)="deleteItem(i)">Delete me</button>
+    </li>
+</ul>
+
+<ul>
+    <li *ngIf="items.length === 0">La Lista esta vacia</li>
+    <li *ngFor="let name of fruits; index as i">
+       {{name}}
+    </li>
+</ul>
+
+<div *ngFor="let product of products">
+    {{product.title}}
+    <img [src]="product.image" [alt]="product.title"> 
+    {{product.price}}
+</div>
