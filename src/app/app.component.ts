@@ -45,14 +45,14 @@ export class AppComponent {
     {
       id: '5',
       image: 'assets/images/stickers1.png',
-      title: 'Stickers',
+      title: 'Sticker Platzi',
       price: 80000,
       description: 'bla bla bla bla bla'
     },
     {
       id: '6',
       image: 'assets/images/stickers2.png',
-      title: 'Stickers',
+      title: 'Sticker Nunca',
       price: 80000,
       description: 'bla bla bla bla bla'
     }
