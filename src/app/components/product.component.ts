@@ -5,7 +5,9 @@ import {
     EventEmitter, 
     OnChanges, 
     SimpleChange, 
-    SimpleChanges } from '@angular/core'
+    SimpleChanges, 
+    OnInit,
+    OnDestroy} from '@angular/core'
 
 import { Product } from '../product.model'
 
@@ -14,9 +16,9 @@ import { Product } from '../product.model'
     templateUrl: './product.component.html',
     styleUrls: ['./product.component.scss']
 })
-export class ProductComponent {
+export class ProductComponent implements OnInit, OnChanges, OnDestroy{
     @Input() product: Product;
-    @Output() onAddCart: EventEmitter<any> = new EventEmitter();
+    @Output() whenAddCart: EventEmitter<any> = new EventEmitter();
 
     constructor(){
         console.log('1.Constructor');
@@ -32,9 +34,9 @@ export class ProductComponent {
         console.log('3. ngOnInit');
     }
 
-    ngDoCheck(){
+    /*ngDoCheck(){
         console.log('4. ngDoCheck');
-    }
+    }*/
 
     ngOnDestroy(){
         console.log('5. ngOnDestroy');
@@ -42,6 +44,6 @@ export class ProductComponent {
 
     addCart(){
         console.log('Adicionar al carrito');
-        this.onAddCart.emit(this.product.id);
+        this.whenAddCart.emit(this.product.id);
     }
 }

@@ -41,5 +41,5 @@
 
 <div class="product-grid">
     <app-product *ngFor="let product of products" 
-                 (onAddCart)="clickProduct($event)" [product]="product"></app-product>
+                 (whenAddCart)="clickProduct($event)" [product]="product"></app-product>
 </div>
