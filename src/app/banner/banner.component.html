@@ -1,0 +1,26 @@
+<!-- Slider main container -->
+<!-- <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" *ngFor="let img of images">
+          <img [src]="img" alt="Imagen del Banner">
+      </div>      
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-scrollbar"></div>
+</div> -->
+
+<swiper
+      [slidesPerView]="1"
+      [spaceBetween]="50"
+      (swiper)="onSwiper($event)"
+      (slideChange)="onSlideChange()"
+      [navigation]="true"
+      [pagination]="{ clickable: true }"
+      [scrollbar]="{ draggable: true }"
+      >
+    <ng-template swiperSlide *ngFor="let img of images">
+        <img [src]="img" alt="Imagen del Banner">    
+    </ng-template>    
+</swiper>
