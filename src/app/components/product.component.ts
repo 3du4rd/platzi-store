@@ -20,6 +20,8 @@ export class ProductComponent implements OnInit, OnChanges, OnDestroy{
     @Input() product: Product;
     @Output() whenAddCart: EventEmitter<any> = new EventEmitter();
 
+    today = new Date();
+
     constructor(){
         console.log('1.Constructor');
     }
