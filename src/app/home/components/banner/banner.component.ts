@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { A11y, Navigation, Pagination, Scrollbar } from 'swiper';
-import SwiperCore from 'swiper/core';
+import SwiperCore, {
+  Navigation,
+  Pagination,
+  Scrollbar,
+  A11y,
+} from 'swiper/core';
+
+SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
 @Component({
   selector: 'app-banner',
@@ -18,7 +24,7 @@ export class BannerComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log('');
+    console.log('BannerComponent ngOnInit');
   }
 
   onSwiper(swiper) {
