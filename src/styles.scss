@@ -1,11 +1,14 @@
 @import '~swiper/swiper-bundle';
 
-body{
-    margin: 0px;
-    padding: auto;
-}
+// body{
+//     margin: 0px;
+//     padding: auto;
+// }
 
 .product-grid {
     display: grid;
     grid-template-columns: auto auto auto auto;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
