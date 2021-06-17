@@ -1,6 +1,47 @@
-<nav>
+<!-- <nav>
     <a routerLink="/demo">Demo</a>
     <a routerLink="/home" routerLinkActive="active">Home</a>
     <a routerLink="/products">Products</a>
     <a routerLink="/contact">Contact</a>    
-</nav>
+</nav> -->
+
+<p>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <div class="row middle-xs">
+
+            <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+                <mat-icon>menu</mat-icon>
+            </button>
+            
+            <span>Platzi Store</span>
+            
+            <span class="example-spacer"></span>
+            
+            <button routerLink="/home" mat-icon-button class="material-icons" aria-label="Home">
+                <mat-icon>home</mat-icon>
+            </button>
+
+            <button routerLink="/demo" mat-icon-button class="material-icons" aria-label="Demo">
+                <mat-icon>favorite</mat-icon>
+            </button>
+
+            <button routerLink="/products" mat-icon-button class="material-icons" aria-label="Products">
+                <mat-icon>store</mat-icon>
+            </button>
+
+            <button routerLink="/contact" mat-icon-button class="material-icons orange600" aria-label="Contact">
+                <mat-icon>help</mat-icon>
+            </button>
+
+            <button routerLink="" mat-icon-button class="material-icons-outlined" aria-label="Cart">
+                <mat-icon matBadge="5" matBadgeColor="warn">shopping_cart</mat-icon>
+            </button>
+            
+            <button mat-icon-button class="material-icons" aria-label="Share icon">
+                <mat-icon>share</mat-icon>
+            </button>
+        </div>
+      </mat-toolbar-row>        
+    </mat-toolbar>
+</p>
