@@ -35,4 +35,19 @@ export class ProductDetailComponent implements OnInit {
     });
   }
 
+  createProduct(){
+    const newProduct: Product = {
+      id: '369',
+      title: 'Producto 369',
+      image: 'assets/images/hoodie.png',
+      price: 369,
+      description: 'Producto Nuevo 369'
+    };
+    
+    this.productsService.createProduct(newProduct)
+    .subscribe(product => {
+      console.log(product);
+    });
+  }
+
 }
