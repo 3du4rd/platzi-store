@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 import { Product } from '../../models/product.model'
 
@@ -56,12 +57,12 @@ export class ProductsService {
 
   getAllProducts(){
     //return this.products;    
-    return this.http.get<Product[]>('https://platzi-store.herokuapp.com/products');
+    return this.http.get<Product[]>(environment.url_api);
   }
 
   getProduct(id: string){
     //return this.products.find(item => id === item.id);
-    return this.http.get(`https://platzi-store.herokuapp.com/products/${id}`);
+    return this.http.get<Product>(`${environment.url_api}/${id}`);
   }
 
 }
