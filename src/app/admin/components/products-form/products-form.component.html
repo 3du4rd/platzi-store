@@ -1,0 +1,35 @@
+<div class="example-container">
+    <form [formGroup]="productForm">
+        <p>Crear Producto</p>
+
+        <!-- Id -->
+        <mat-form-field appearance="fill">
+            <mat-label>Id</mat-label>
+            <input type="text" matInput formControlName="id">
+            <mat-hint>Errors appear instantly!</mat-hint>
+        </mat-form-field>
+
+        <!-- Title -->
+        <mat-form-field appearance="fill">
+            <mat-label>Title</mat-label>
+            <input type="text" matInput formControlName="title">
+            <mat-hint>Errors appear instantly!</mat-hint>
+        </mat-form-field>
+
+        <!-- Price -->
+        <mat-form-field appearance="fill">
+            <mat-label>Price</mat-label>
+            <input type="text" matInput formControlName="price">
+            <mat-hint>Errors appear instantly!</mat-hint>
+        </mat-form-field>
+
+        <!-- Description -->
+        <mat-form-field appearance="fill">
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description"></textarea>
+            <mat-hint>Errors appear instantly!</mat-hint>        
+        </mat-form-field>
+
+        <!-- Send button -->
+    </form>
+</div>
