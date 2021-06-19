@@ -11,10 +11,11 @@ import { TableComponent } from './components/table/table.component';
 
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductsFormComponent } from './components/products-form/products-form.component';
+import { EditProductFormComponent } from './components/edit-product-form/edit-product-form.component';
 
 
 @NgModule({
-  declarations: [ProductFormComponent, NavComponent, TableComponent, DashboardComponent, ProductListComponent, ProductsFormComponent],
+  declarations: [ProductFormComponent, NavComponent, TableComponent, DashboardComponent, ProductListComponent, ProductsFormComponent, EditProductFormComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

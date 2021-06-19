@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { EditProductFormComponent } from './components/edit-product-form/edit-product-form.component';
 import { NavComponent } from './components/nav/nav.component';
 import { ProductFormComponent } from './components/product-form/product-form.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
@@ -15,7 +16,7 @@ const routes: Routes = [
       {
         path: 'create',
         component: ProductFormComponent
-      },
+      },      
       {
         path: 'dashboard',
         component: DashboardComponent 
@@ -31,7 +32,11 @@ const routes: Routes = [
       {
         path: 'products/create',
         component: ProductsFormComponent
-      }
+      },
+      {
+        path: 'products/edit/:id',
+        component: EditProductFormComponent
+      },
     ]
   }
 ];
