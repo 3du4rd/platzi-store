@@ -34,8 +34,14 @@
             <div class="col-md">
                 <mat-form-field appearance="outline">
                     <mat-label>Price</mat-label>
-                    <input type="text" matInput formControlName="price">
+                    <input type="text" #price matInput formControlName="price">
                     <mat-hint>Errors appear instantly!</mat-hint>
+                    <mat-error *ngIf="priceField.hasError('required')">
+                        Price is <strong>required</strong>
+                    </mat-error>
+                    <mat-error *ngIf="productForm.get('price').hasError('price_invalid')">
+                        Price is <strong>invalid</strong>
+                    </mat-error>
                 </mat-form-field>
             </div>
         </div>
