@@ -1,31 +1,61 @@
 <!-- Default form contact -->
 <!-- <form class="text-center border border-light p-5" [formGroup]="contactForm" (ngSubmit)="onSubmit()">  -->
-    <form class="text-center border border-light p-5" (ngSubmit)="onSubmit()"> 
+    <form> 
     <p class="h4 mb-4">Contact us</p> 
   
+    <!-- Name 
+    <input type="text" [formControl]="contactFormName" id="contactFormName" 
+      class="form-control mb-4" placeholder="Name">-->
+    
+    <!-- Email 
+    <input type="email" [formControl]="contactFormEmail" id="contactFormEmail" 
+      class="form-control mb-4" placeholder="E-mail">-->  
+    
     <!-- Name -->
-    <input type="text" formControlName="contactFormName" id="defaultContactFormName" 
-      class="form-control mb-4" placeholder="Name">
-  
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input type="text" matInput [formControl]="contactFormName" [errorStateMatcher]="matcher"
+              placeholder="John Smith">
+      <mat-hint>Errors appear instantly!</mat-hint>
+      <mat-error *ngIf="contactFormName.hasError('minLength') && !contactFormName.hasError('required')">
+        Please enter a valid name
+      </mat-error>
+      <mat-error *ngIf="contactFormName.hasError('required')">
+        Name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>  
+    
     <!-- Email -->
-    <input type="email" formControlName="contactFormEmail" id="defaultContactFormEmail" 
-      class="form-control mb-4" placeholder="E-mail">
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput [formControl]="contactFormEmail" [errorStateMatcher]="matcher"
+              placeholder="Ex. pat@example.com">
+      <mat-hint>Errors appear instantly!</mat-hint>
+      <mat-error *ngIf="contactFormEmail.hasError('email') && !contactFormEmail.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="contactFormEmail.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>   
   
     <!-- Subject -->
+    <mat-form-field appearance="fill">
     <label>Subject</label>
-    <select formControlName="contactFormSubjects" class="browser-default custom-select mb-4">
-      <option value="" disabled>Choose option</option>
-      <option value="1" selected>Feedback</option>
-      <option value="2">Report a bug</option>
-      <option value="3">Feature request</option>
-      <option value="4">Feature request</option>
-    </select>
+    <mat-select [formControl]="contactFormSubjects">
+      <mat-option value="" disabled>Choose option</mat-option>
+      <mat-option value="1" selected>Feedback</mat-option>
+      <mat-option value="2">Report a bug</mat-option>
+      <mat-option value="3">Feature request</mat-option>
+      <mat-option value="4">Feature request</mat-option>
+    </mat-select>
+    </mat-form-field>
   
     <!-- Message -->
-    <div class="form-group">
-      <textarea formControlName="contactFormMessage" class="form-control rounded-0" id="exampleFormControlTextarea2"
-        rows="3" placeholder="Message"></textarea>
-    </div>
+    <mat-form-field class="example-full-width">
+      <textarea matInput [formControl]="contactFormMessage" id="contactFormMessage"
+                rows="5" placeholder="Message"></textarea>
+    </mat-form-field>
 
     <!-- Send button -->
     <button mdbBtn color="info" outline="true" block="true" class="z-depth-0 my-4 waves-effect"
