@@ -1,35 +1,60 @@
-<div class="example-container">
-    <form [formGroup]="productForm">
-        <p>Crear Producto</p>
+<mat-card class="example-card">
+    <mat-card-header>
+        <div mat-card-avatar></div>
+        <mat-card-title>Crear Producto</mat-card-title>
+        <mat-card-subtitle>Store</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+    <form [formGroup]="productForm" (ngSubmit)="saveProduct($event)">
 
         <!-- Id -->
-        <mat-form-field appearance="fill">
-            <mat-label>Id</mat-label>
-            <input type="text" matInput formControlName="id">
-            <mat-hint>Errors appear instantly!</mat-hint>
-        </mat-form-field>
+        <div class="row">
+            <div class="col-md">
+                <mat-form-field appearance="outline">
+                    <mat-label>Id</mat-label>
+                    <input type="text" matInput formControlName="id">
+                    <mat-hint>Errors appear instantly!</mat-hint>
+                </mat-form-field>
+            </div>
+        </div>
 
         <!-- Title -->
-        <mat-form-field appearance="fill">
-            <mat-label>Title</mat-label>
-            <input type="text" matInput formControlName="title">
-            <mat-hint>Errors appear instantly!</mat-hint>
-        </mat-form-field>
+        <div class="row">
+            <div class="col-md">
+                <mat-form-field appearance="outline">
+                    <mat-label>Title</mat-label>
+                    <input type="text" matInput formControlName="title">
+                    <mat-hint>Errors appear instantly!</mat-hint>
+                </mat-form-field>
+            </div>
+        </div>
 
         <!-- Price -->
-        <mat-form-field appearance="fill">
-            <mat-label>Price</mat-label>
-            <input type="text" matInput formControlName="price">
-            <mat-hint>Errors appear instantly!</mat-hint>
-        </mat-form-field>
+        <div class="row">
+            <div class="col-md">
+                <mat-form-field appearance="outline">
+                    <mat-label>Price</mat-label>
+                    <input type="text" matInput formControlName="price">
+                    <mat-hint>Errors appear instantly!</mat-hint>
+                </mat-form-field>
+            </div>
+        </div>
 
         <!-- Description -->
-        <mat-form-field appearance="fill">
-            <mat-label>Description</mat-label>
-            <textarea matInput formControlName="description"></textarea>
-            <mat-hint>Errors appear instantly!</mat-hint>        
-        </mat-form-field>
+        <div class="row">
+            <div class="col-md">
+                <mat-form-field appearance="outline">
+                    <mat-label>Description</mat-label>
+                    <textarea matInput formControlName="description" rows="5"></textarea>
+                    <mat-hint>Errors appear instantly!</mat-hint>        
+                </mat-form-field>
+            </div>
+        </div>
 
         <!-- Send button -->
+        <mat-card-actions>
+            <button mat-raised-button color="accent" type="submit" [disabled]="productForm.invalid">Crear</button>   
+        </mat-card-actions>
     </form>
-</div>
+    </mat-card-content>
+</mat-card>
