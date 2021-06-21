@@ -8,6 +8,7 @@ import {
     SimpleChanges, 
     OnInit,
     OnDestroy} from '@angular/core'
+import { CartService } from 'src/app/core/services/cart.service';
 
 import { Product } from '../../../core/models/product.model'
 
@@ -22,7 +23,9 @@ export class ProductComponent implements OnInit, OnChanges, OnDestroy{
 
     today = new Date();
 
-    constructor(){
+    constructor(
+        private cartService: CartService
+    ){
         console.log('1.Constructor');
     }
 
@@ -46,6 +49,7 @@ export class ProductComponent implements OnInit, OnChanges, OnDestroy{
 
     addCart(){
         console.log('Adicionar al carrito');
-        this.whenAddCart.emit(this.product.id);
+        //this.whenAddCart.emit(this.product.id);
+        this.cartService.addCart(this.product);
     }
 }
