@@ -18,6 +18,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatStepperModule } from '@angular/material/stepper';
 import { ErrorStateMatcher }  from '@angular/material/core';
 
 
@@ -41,7 +42,8 @@ import { ErrorStateMatcher }  from '@angular/material/core';
     MatSidenavModule,
     MatListModule,
     MatGridListModule,
-    MatMenuModule
+    MatMenuModule,
+    MatStepperModule
   ],
   exports: [
     LayoutModule,
@@ -60,7 +62,8 @@ import { ErrorStateMatcher }  from '@angular/material/core';
     MatSidenavModule,
     MatListModule,
     MatGridListModule,
-    MatMenuModule
+    MatMenuModule,
+    MatStepperModule
   ]
 })
 export class MaterialModule { }

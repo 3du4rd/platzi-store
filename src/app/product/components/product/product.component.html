@@ -13,8 +13,8 @@
       </p>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button (click)="addCart()">Add to Cart</button>   
-      <button mat-button [routerLink]="['/products', product.id]">View Detail</button>
+      <button mat-raised-button (click)="addCart()" color="warn">Add to Cart</button>   
+      <button mat-raised-button [routerLink]="['/products', product.id]" color="primary">View Detail</button>
     </mat-card-actions>
 </mat-card>
   
