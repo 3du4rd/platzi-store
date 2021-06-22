@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { AuthService } from './core/services/auth.service';
@@ -10,16 +10,21 @@ import { AuthService } from './core/services/auth.service';
 export class AdminGuard implements CanActivate {
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ){ }
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return this.authService.hasUser()
-    .pipe( 
-      tap(user => console.log(user)),
-      map(user => user===null ? false : true));
+    .pipe(   
+      map(user => user===null ? false : true),
+      tap(hasUser => {
+        if (!hasUser){
+          this.router.navigate(['/auth/login']);
+        }
+      }));
   }
   
 }
