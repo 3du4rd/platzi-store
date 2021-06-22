@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireStorage } from '@angular/fire/storage';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { finalize } from 'rxjs/operators';
 import { ProductsService } from 'src/app/core/services/products/products.service';
 import { MyValidators } from 'src/app/utils/validators';
 
@@ -12,11 +15,13 @@ import { MyValidators } from 'src/app/utils/validators';
 export class ProductsFormComponent implements OnInit {
 
   productForm: FormGroup;
+  image$: Observable<any>;
 
   constructor(
     private formBuilder: FormBuilder,
     private productsService: ProductsService,
-    private router: Router
+    private router: Router,
+    private storage: AngularFireStorage
   ) { 
     this.buildForm();
   }
@@ -41,6 +46,29 @@ export class ProductsFormComponent implements OnInit {
       image: '',
       description: ['', [Validators.required]]
     });
+  }
+
+  /**
+   * 
+   * @param event 
+   */
+  uploadFile(event: Event){
+    const element = (event.target as HTMLInputElement);
+    const file = element.files[0];
+    const name = file.name;
+    const fileRef = this.storage.ref(name);
+    const task = this.storage.upload(name, file);
+    task.snapshotChanges()
+    .pipe(
+      finalize( () => {
+        this.image$ = fileRef.getDownloadURL();
+        this.image$.subscribe( url=>{
+          console.log(`Image URL -> ${url}`);
+          this.productForm.get('image').setValue(url);
+        })
+      })
+    )
+    .subscribe();
   }
 
   /**

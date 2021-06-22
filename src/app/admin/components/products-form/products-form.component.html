@@ -57,6 +57,14 @@
             </div>
         </div>
 
+        <!-- Image -->
+        <div class="row">
+            <div class="col-md">
+                    <img *ngIf="(image$ |async) as image" [src]="image" alt="">
+                    <input type="file" (change)="uploadFile($event)">
+            </div>
+        </div>
+
         <!-- Send button -->
         <mat-card-actions>
             <button mat-raised-button color="accent" type="submit" [disabled]="productForm.invalid">Save</button>   
